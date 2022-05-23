@@ -1,0 +1,48 @@
+% ----------------------------------------------------------------------
+\begin{frame}[fragile,shrink]{Application class (\texttt{app.py})}
+\begin{lstlisting}
+import sys
+import clingo
+
+class ExampleApp(clingo.Application):
+    program_name = "example"
+    version = "1.0"
+
+    @staticmethod
+    def divisors(a):
+        a = a.number
+        for i in range(1, a+1):
+            if a % i == 0:
+                yield clingo.Number(i)
+
+    def main(self, ctl, files):
+        for path in files: ctl.load(path)
+        if not files:
+            ctl.load("-")
+        ctl.ground([("base", [])], context=self)
+        ctl.solve()
+
+if __name__ == "__main__":
+    clingo.clingo_main(ExampleApp(), sys.argv[1:])
+\end{lstlisting}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[fragile]{Application class, running}
+  \bigskip
+\begin{lstlisting}
+$ python app.py example.lp
+example version 1.0
+Reading from example.lp
+Solving...
+Answer: 1
+num(3) num(6) div(3,1) div(3,3) \
+div(6,1) div(6,2) div(6,3) div(6,6)
+SATISFIABLE
+\end{lstlisting}
+\end{frame}
+% ----------------------------------------------------------------------
+%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% End:

@@ -1,0 +1,20 @@
+% ----------------------------------------------------------------------
+\begin{frame}[fragile]{An example}
+  \bigskip
+  \begin{itemize}
+  \item<1-> \structure{Input program}  \texttt{example.lp}
+\begin{lstlisting}
+num(3).
+num(6).
+div(N,@divisors(N)) :- num(N).
+\end{lstlisting}
+  \bigskip
+  \item<2-> \structure{Resulting program}
+\begin{lstlisting}
+num(3).
+num(6).
+div(3,(1;3)).
+div(6,(1;2;3;6)).
+\end{lstlisting}
+  \end{itemize}
+\end{frame}

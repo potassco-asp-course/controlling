@@ -1,0 +1,40 @@
+% ----------------------------------------------------------------------
+\begin{frame}{What to use when\dots?}
+  \begin{itemize}
+  \item \structure{embedded script}
+
+    \begin{itemize}
+    \item suitable for small amendments to the logic program,
+
+      anything on the term level during grounding
+
+    \item perform calculations that are hard or inconvenient to express in ASP
+    \end{itemize}
+    \smallskip
+  \item \structure{module import}
+
+    \begin{itemize}
+    \item convenient way to use \clingo\ as part of a larger project
+    \item provides high level functions to control grounding and solving
+    \item surrounding application is in charge of the control flow and
+      \\ ASP is used to perform specific computations
+    \end{itemize}
+    \smallskip
+  \item \structure{application class}
+
+    \begin{itemize}
+    \item aims at building custom systems based on \clingo
+    \item similar to module import but with more customization capabilities
+    \end{itemize}
+
+  \item [] constitutes the cornerstone of many \clingo-based systems
+
+%    \qquad such as \clingcon, \clingoM{dl}, \eclingo, and \telingo
+  \end{itemize}
+\end{frame}
+% ----------------------------------------------------------------------
+%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% End:
